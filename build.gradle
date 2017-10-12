@@ -16,6 +16,7 @@ buildscript {
 	}
 }
 
+
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'kotlin-jpa'
@@ -29,6 +30,14 @@ compileKotlin {
 }
 compileTestKotlin {
 	kotlinOptions.jvmTarget = "1.8"
+}
+
+bootRun {
+	main = 'com.booklist.backend.BackendApplication'
+}
+
+test {
+	jvmArgs '--add-modules', 'java.xml.bind'
 }
 
 repositories {

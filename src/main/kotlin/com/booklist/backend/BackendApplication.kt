@@ -12,21 +12,22 @@ import org.springframework.web.bind.annotation.*
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
+import javax.persistence.OneToMany
 
 @SpringBootApplication
 class BackendApplication {
-
-    fun main(args: Array<String>) {
-        SpringApplication.run(BackendApplication::class.java, *args)
-    }
 
     @Bean
     fun startup(userService: UserService) = CommandLineRunner {
         userService.register("erik", "erik@gmail.com")
     }
 
-
 }
+
+fun main(args: Array<String>) {
+    SpringApplication.run(BackendApplication::class.java, *args)
+}
+
 
 @RestController
 @RequestMapping("/books")
@@ -83,10 +84,19 @@ interface BooklistRepository : JpaRepository<Booklist, Long>
 
 
 @Entity
-class Book(@Id @GeneratedValue val id: Long = -1, val isbn: String, val title: String, val author: String)
+class Book(@Id @GeneratedValue val id: Long = -1,
+           val isbn: String,
+           val title: String,
+           val author: String)
 
 @Entity
-class User(@Id @GeneratedValue val id: Long = -1, val name: String, val emailAddress: String, val booklists: List<Booklist>)
+class User(@Id @GeneratedValue val id: Long = -1,
+           val name: String,
+           val emailAddress: String,
+           @OneToMany val booklists: List<Booklist>
+)
 
 @Entity
-class Booklist(@Id @GeneratedValue val id: Long = -1, val name: String = "Booklist", val books: List<Book>)
+class Booklist(@Id @GeneratedValue val id: Long = -1,
+               val name: String = "Booklist",
+               @OneToMany val books: List<Book>)
