@@ -1,0 +1,11 @@
+= Booklist manager
+
+This application is a small demo application to manage booklists.
+
+It's built on top of:
+
+* Spring Boot 2.0
+* Java 9
+* Kotlin 1.2
+
+And some UI framework, maybe, possibly ;-)
