@@ -1,0 +1,22 @@
+= Features
+
+User
+- Has lists (suggestions by other users, recommendations (system), to read, read, or extra lists)
+
+  | Recommendations | Suggested (4) | Read (20) | Reading list (3) |
+
+- Statistics (number of books read, interests, speed, etc)
+  - predictions on how when book is done based on reading habbits
+
+User
+- has lists
+- can easily add a book to a list
+- can sort a list (author, title, year, pages)
+- can get recommendations
+  - recommendations can be from other users
+  - recommendations can be from the system based on reading habbit
+- can receive email from the system
+
+== Version 1
+
+User has 1 list, and can add and remove books from it.
